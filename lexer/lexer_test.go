@@ -12,6 +12,21 @@ func TestNextToken(t *testing){
 		expectedType token.TokenType
 		exectedLiteral string
 	} {
-		
+		{ token.ASSIGN, "=" },
+		{ token.PLUS, "+" },
+		{ token.LPAREN, "(" },
+		{ token.RPAREN, ")" },
+		{ token.LBRACE, "{" },
+		{ token.RBRACE, "}" },
+		{ token.COMMA, "," },
+		{ token.SEMICOLAN, ";"},
+		{ token.EOF, ""}
+		{}
+	}
+
+	l := New(input)
+
+	for i, tt := range tests {
+		tok := l.NextToken()
 	}
 }
