@@ -1,26 +1,26 @@
 package lexer
 
 import (
-	"testing"
 	"github.com/amila-ku/monkey/token"
+	"testing"
 )
 
-func TestNextToken(t *testing.T){
+func TestNextToken(t *testing.T) {
 	input := `=+(){},;`
 
 	tests := []struct {
-		expectedType token.TokenType
+		expectedType    token.TokenType
 		expectedLiteral string
-	} {
-		{ token.ASSIGN, "=" },
-		{ token.PLUS, "+" },
-		{ token.LPAREN, "(" },
-		{ token.RPAREN, ")" },
-		{ token.LBRACE, "{" },
-		{ token.RBRACE, "}" },
-		{ token.COMMA, "," },
-		{ token.SEMICOLAN, ";"},
-		{ token.EOF, ""},
+	}{
+		{token.ASSIGN, "="},
+		{token.PLUS, "+"},
+		{token.LPAREN, "("},
+		{token.RPAREN, ")"},
+		{token.LBRACE, "{"},
+		{token.RBRACE, "}"},
+		{token.COMMA, ","},
+		{token.SEMICOLAN, ";"},
+		{token.EOF, ""},
 	}
 
 	l := New(input)

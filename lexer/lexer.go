@@ -3,10 +3,10 @@ package lexer
 import "github.com/amila-ku/monkey/token"
 
 type Lexer struct {
-	input string
-	position int //current position in inut
-	readPosition int //current reading position in input
-	ch byte //current char under examination
+	input        string
+	position     int  //current position in inut
+	readPosition int  //current reading position in input
+	ch           byte //current char under examination
 }
 
 func New(input string) *Lexer {
@@ -17,25 +17,25 @@ func New(input string) *Lexer {
 
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
-	
-	switch  l.ch {
-	case '=' :
+
+	switch l.ch {
+	case '=':
 		tok = newToken(token.ASSIGN, l.ch)
-	case ';' :
+	case ';':
 		tok = newToken(token.SEMICOLAN, l.ch)
-	case '+' :
+	case '+':
 		tok = newToken(token.PLUS, l.ch)
-	case ',' :
+	case ',':
 		tok = newToken(token.COMMA, l.ch)
-	case '(' :
+	case '(':
 		tok = newToken(token.LPAREN, l.ch)
-	case ')' :
+	case ')':
 		tok = newToken(token.RPAREN, l.ch)
-	case '{' :
+	case '{':
 		tok = newToken(token.LBRACE, l.ch)
-	case '}' :
+	case '}':
 		tok = newToken(token.RBRACE, l.ch)
-	case 0 :
+	case 0:
 		tok.Literal = ""
 		tok.Type = token.EOF
 	}
@@ -52,10 +52,9 @@ func (l *Lexer) readChar() {
 	}
 
 	l.position = l.readPosition
-	l.readPosition++ 
+	l.readPosition++
 }
 
 func newToken(tokenType token.TokenType, ch byte) token.Token {
-	return token.Token{ Type: tokenType, Literal: string(ch)}
+	return token.Token{Type: tokenType, Literal: string(ch)}
 }
-
