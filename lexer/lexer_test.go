@@ -2,7 +2,7 @@ package lexer
 
 import (
 	"testing"
-	"monkey/token"
+	"github.com/amila-ku/monkey/monkey/token"
 )
 
 func TestNextToken(t *testing){
