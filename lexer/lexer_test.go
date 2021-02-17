@@ -5,12 +5,12 @@ import (
 	"github.com/amila-ku/monkey/token"
 )
 
-func TestNextToken(t *testing){
+func TestNextToken(t *testing.T){
 	input := `=+(){},;`
 
-	tests : = []struct {
+	tests := []struct {
 		expectedType token.TokenType
-		exectedLiteral string
+		expectedLiteral string
 	} {
 		{ token.ASSIGN, "=" },
 		{ token.PLUS, "+" },
@@ -20,8 +20,7 @@ func TestNextToken(t *testing){
 		{ token.RBRACE, "}" },
 		{ token.COMMA, "," },
 		{ token.SEMICOLAN, ";"},
-		{ token.EOF, ""}
-		{}
+		{ token.EOF, ""},
 	}
 
 	l := New(input)
