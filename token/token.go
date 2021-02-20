@@ -12,7 +12,7 @@ const (
 	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 
-	//Identifiere + Literals
+	//Identifier + Literals
 	IDENT = "IDENT" // add, foobar, x, y
 	INT   = "INT"   // 1234
 
@@ -29,6 +29,21 @@ const (
 	RBRACE    = "}"
 
 	//keywords
-	FUNCTION = "FUNCTION"
-	LET      = "LET"
+	FUNCTION = "FUNCTION" // fn
+	LET      = "LET"      // let
 )
+
+// maps keyword string to tokey type definition
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+// LookupIdent returns tokentype for a given identifier
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	} else {
+		return IDENT
+	}
+}
