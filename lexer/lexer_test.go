@@ -13,6 +13,7 @@ func TestNextToken(t *testing.T) {
 		x + y;
 	};
 	let result = add(five,ten);
+	
 	`
 	//input := `+`
 
@@ -49,7 +50,6 @@ func TestNextToken(t *testing.T) {
 		{token.LET, "let"},
 		{token.IDENT, "result"},
 		{token.ASSIGN, "="},
-		{token.INT, "5"},
 		{token.IDENT, "add"},
 		{token.LPAREN, "("},
 		{token.IDENT, "five"},
@@ -57,7 +57,7 @@ func TestNextToken(t *testing.T) {
 		{token.IDENT, "ten"},
 		{token.RPAREN, ")"},
 		{token.SEMICOLAN, ";"},
-		{token.EOF, "EOF"},
+		{token.EOF, ""},
 	}
 
 	l := New(input)
