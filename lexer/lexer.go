@@ -71,6 +71,10 @@ func (l *Lexer) readIdentifier() string {
 	return l.input[position:l.position]
 }
 
+func (l *Lexer) skipWhitespace() {
+	
+}
+
 func isLetter(ch byte) bool {
 	return 'a' <= ch && 'z' >= ch || 'A' <= ch && 'Z' >= ch || ch == '_'
 }
@@ -78,3 +82,5 @@ func isLetter(ch byte) bool {
 func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
+
+
