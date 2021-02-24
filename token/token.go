@@ -19,6 +19,10 @@ const (
 	//Operators
 	ASSIGN = "="
 	PLUS   = "+"
+	MINUS  = "-"
+	LT		= "<"
+	GT		= ">"
+
 
 	//Delimiters
 	COMMA     = ","
@@ -27,6 +31,9 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
+	BANG	  = "!"
+	ASTERISX	  = "*"
+	SLASH		= "/"
 
 	//keywords
 	FUNCTION = "FUNCTION" // fn
