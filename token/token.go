@@ -38,12 +38,22 @@ const (
 	//keywords
 	FUNCTION = "FUNCTION" // fn
 	LET      = "LET"      // let
+	IF		= "IF"	// if
+	ELSE    = "ELSE" // else
+	TRUE    = "TRUE" // true
+	FALSE   = "FALSE" // false
+	RETURN  = "RETURN" // return
 )
 
 // maps keyword string to tokey type definition
 var keywords = map[string]TokenType{
 	"fn":  FUNCTION,
 	"let": LET,
+	"if": IF,
+	"else": ELSE,
+	"true": TRUE,
+	"false": FALSE,
+	"return": RETURN,
 }
 
 // LookupIdent returns tokentype for a given identifier
