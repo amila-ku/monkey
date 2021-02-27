@@ -2,6 +2,7 @@ package lexer
 
 import "github.com/amila-ku/monkey/token"
 
+// Lexer defines the structure of lexical analysis component. This converts squence of characters to a sequence of tokens.
 type Lexer struct {
 	input        string
 	position     int  //current position in inut
@@ -9,12 +10,14 @@ type Lexer struct {
 	ch           byte //current char under examination
 }
 
+// New creats a new lexer and returns a pointer
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()
 	return l
 }
 
+// NextToken reads and retutns the next token
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 	l.skipWhitespace()
@@ -26,7 +29,7 @@ func (l *Lexer) NextToken() token.Token {
 			ch := l.ch
 			l.readChar()
 			literal := string(ch) + string(l.ch)
-			tok = token.Token{ Type: token.EQ, Literal: literal }
+			tok = token.Token{Type: token.EQ, Literal: literal}
 		}
 	case ';':
 		tok = newToken(token.SEMICOLAN, l.ch)
@@ -45,14 +48,14 @@ func (l *Lexer) NextToken() token.Token {
 	case '}':
 		tok = newToken(token.RBRACE, l.ch)
 	case '/':
-		tok = newToken(token.SLASH, l.ch)		
+		tok = newToken(token.SLASH, l.ch)
 	case '!':
 		tok = newToken(token.BANG, l.ch)
 		if l.peekChar() == '=' {
 			ch := l.ch
 			l.readChar()
 			literal := string(ch) + string(l.ch)
-			tok = token.Token{ Type: token.NOT_EQ, Literal: literal }
+			tok = token.Token{Type: token.NOT_EQ, Literal: literal}
 		}
 	case '*':
 		tok = newToken(token.ASTERISX, l.ch)
@@ -95,10 +98,9 @@ func (l *Lexer) readChar() {
 func (l *Lexer) peekChar() byte {
 	if l.readPosition >= len(l.input) {
 		return 0 //ASCII equalent of null
-	} else {
-		return l.input[l.readPosition]
 	}
 
+	return l.input[l.readPosition]
 }
 
 func (l *Lexer) skipWhitespace() {

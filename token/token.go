@@ -8,8 +8,9 @@ type Token struct {
 	Literal string
 }
 
+// list of tokens
 const (
-	ILLEGAL = "ILLEGAL"
+	ILLEGAL = "ILLEGAL" // use when we don't understand the token
 	EOF     = "EOF"
 
 	//Identifier + Literals
@@ -20,11 +21,10 @@ const (
 	ASSIGN = "="
 	PLUS   = "+"
 	MINUS  = "-"
-	LT		= "<"
-	GT		= ">"
-	EQ		= "=="
-	NOT_EQ  = "!="
-
+	LT     = "<"
+	GT     = ">"
+	EQ     = "=="
+	NOT_EQ = "!="
 
 	//Delimiters
 	COMMA     = ","
@@ -33,28 +33,28 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
-	BANG	  = "!"
-	ASTERISX	  = "*"
-	SLASH		= "/"
+	BANG      = "!"
+	ASTERISX  = "*"
+	SLASH     = "/"
 
 	//keywords
 	FUNCTION = "FUNCTION" // fn
 	LET      = "LET"      // let
-	IF		= "IF"	// if
-	ELSE    = "ELSE" // else
-	TRUE    = "TRUE" // true
-	FALSE   = "FALSE" // false
-	RETURN  = "RETURN" // return
+	IF       = "IF"       // if
+	ELSE     = "ELSE"     // else
+	TRUE     = "TRUE"     // true
+	FALSE    = "FALSE"    // false
+	RETURN   = "RETURN"   // return
 )
 
 // maps keyword string to tokey type definition
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
-	"if": IF,
-	"else": ELSE,
-	"true": TRUE,
-	"false": FALSE,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"if":     IF,
+	"else":   ELSE,
+	"true":   TRUE,
+	"false":  FALSE,
 	"return": RETURN,
 }
 
