@@ -7,6 +7,7 @@ import (
 )
 
 type Parser struct {
+	l *lexer.Lexer
 	curToken token.Token
 	peekToken token.Token
 }
@@ -30,3 +31,4 @@ func(p *Parser) nextToken() {
 func (p *Parser) ParseProgram() *ast.Program {
 	return nil
 }
+
